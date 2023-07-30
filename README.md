@@ -38,6 +38,8 @@ https://www.kenney.nl/assets/space-shooter-redux
 https://www.kenney.nl/assets/platformer-art-extended-enemies
 https://www.kenney.nl/assets/ranks-pack
 https://www.kenney.nl/assets/game-icons-expansion
+https://www.kenney.nl/assets/ui-pack-space-expansion
+https://www.kenney.nl/assets/ui-pack
 
 
 Font:
