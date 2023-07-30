@@ -32,3 +32,5 @@ https://www.kenney.nl/assets/generic-items
 https://www.kenney.nl/assets/alien-ufo-pack
 https://www.kenney.nl/assets/smoke-particles
 https://www.kenney.nl/assets/physics-assets
+https://www.kenney.nl/assets/space-shooter-redux
+https://www.kenney.nl/assets/platformer-art-extended-enemies
