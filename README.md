@@ -25,6 +25,8 @@ Major Spaceship Overhaul
     New Velocity Based SFX
     Smooth Rotation / Movement
     Ship Lighting With Animation
+    Stop Animation, SFX and Particles
+    Now With Guns!
 New Post Processing & Lighting Changes
 
 
