@@ -34,7 +34,7 @@ Updated Star Particles & Added Rainbow Animation
 Reworked All Planet Visuals
 Added Lights & Animations To "Anchors"
 Updated Cables VFX
-
+Changed Star Collectable Sprites
 
 
 # Credits
