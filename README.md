@@ -35,6 +35,12 @@ Reworked All Planet Visuals
 Added Lights & Animations To "Anchors"
 Updated Cables VFX
 Changed Star Collectable Sprites
+Added New Tutorial And Voice Lines With Subtitles
+Added New Planet Pop SFX
+Added Random Planet Visuals
+Added Weapon Unlock Sequence
+Added End Game Sequence
+Planets Now Kiss
 
 
 # Credits

@@ -118,8 +118,18 @@ public class Linkable : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Instantiate(burst, transform.position, transform.rotation);
-        bonkSound.pitch = UnityEngine.Random.Range(0.6f, 1.6f);
-        bonkSound.Play();
+        if (gameObject.CompareTag("Planet") && collision.gameObject.CompareTag("Planet"))
+        {
+            Instantiate(burst, transform.position, transform.rotation);
+            collision.gameObject.GetComponent<Planet>().kissAudio.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
+            collision.gameObject.GetComponent<Planet>().kissAudio.Play();
+        }
+        else
+        {
+            Instantiate(burst, transform.position, transform.rotation);
+            bonkSound.pitch = UnityEngine.Random.Range(0.6f, 1.6f);
+            bonkSound.Play();
+        }
+        
     }
 }

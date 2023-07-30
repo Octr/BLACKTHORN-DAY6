@@ -10,6 +10,7 @@ public class Planet : Linkable {
     [SerializeField] private float baseLinearDrag = 2f;
     [SerializeField] private float linkedLinearDrag = .25f;
     [SerializeField] private float savedLinearDrag = 4f;
+    [SerializeField] public AudioSource kissAudio;
 
     private bool saved = false;
 

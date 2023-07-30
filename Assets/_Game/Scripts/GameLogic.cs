@@ -6,9 +6,10 @@ using System;
 using System.Text.RegularExpressions;
 
 
-public class GameLogic : MonoBehaviour {
-    public static GameLogic Instance { get; private set;}
+public class GameLogic : Singleton<GameLogic>
+{
     public event EventHandler<WinTimerProgressEventArgs> OnWinTimerProgress;
+    public bool isTutorial;
 
     public int currStars;
 
@@ -25,11 +26,8 @@ public class GameLogic : MonoBehaviour {
     public AudioSource retrySound;
     public AudioSource homeSound;
 
-    void Awake() {
-        if(Instance != null) {
-            Debug.LogError("More than one GameLogic in scene!");
-        }
-        Instance = this;
+    protected override void Awake() {
+        base.Awake();
         Scene currentScene = SceneManager.GetActiveScene();
         try {
             levelId = Int32.Parse(Regex.Replace(currentScene.name, "[^0-9]", ""));
@@ -47,13 +45,19 @@ public class GameLogic : MonoBehaviour {
 
     void Update() {
         bool allSaved = true;
-        foreach(Planet planet in FindObjectsOfType<Planet>()) {
+
+        if (isTutorial)
+        {
+            return;
+        }
+
+        foreach (Planet planet in FindObjectsOfType<Planet>()) {
             if(!planet.IsSaved()) {
                 allSaved = false;
                 break;
             }
         }
-        if(allSaved) {
+            if(allSaved) {
             SetWinTimer(winTimer + Time.deltaTime);
             if(winTimer >= winTimerMax) {
                 LoadNextLevel();

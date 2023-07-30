@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LinkParent
   - gameManager
+  - Planet
   layers:
   - Default
   - TransparentFX
