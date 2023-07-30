@@ -14,7 +14,8 @@ Cleaned / Reorganized Assets Folder Structure
 Added Abstract Singleton Class
 Fixed Enemy Materials (URP)
 Renamed Game
-Removed Redundant Debug Code 
+Removed Redundant Debug Code
+Switched To Linear Color Space
 
 
 
