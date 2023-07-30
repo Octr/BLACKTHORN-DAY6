@@ -1,11 +1,11 @@
 # BLACKTHORN-DAY6
  For DAY 6 - Pass the GAME Challenge 2023
 
- Original (Day1): 
- Day 2: 
- Day 3: 
- Day 4:
- Day 5:
+ Original (Day1): https://jebouin.itch.io/connected-planets
+ Day 2: https://rogueabyss.itch.io/connectedplanetsday2
+ Day 3: https://fomnii.itch.io/connected-planets-day-3
+ Day 4: https://maestrometty.itch.io/connected-planets-day-4
+ Day 5: https://simulatedgravity.itch.io/connected-planets-day-5
  Day 6: Me!
 
 # Changes
