@@ -1,8 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class DontDestroy : MonoBehaviour
 {
@@ -22,9 +22,9 @@ public class DontDestroy : MonoBehaviour
 
     void Awake()
     {
-        images = FindObjectsOfType<Image>(includeInactive:true);
+        images = FindObjectsOfType<Image>(includeInactive: true);
         sprites = FindObjectsOfType<SpriteRenderer>(includeInactive: true);
-        changeSetting();
+        ChangeSetting();
         mainMenuManager = GameObject.Find("MainMenuManager").GetComponent<MainMenu>();
         GameObject[] objs = GameObject.FindGameObjectsWithTag("gameManager");
 
@@ -34,26 +34,29 @@ public class DontDestroy : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
+ 
         DontDestroyOnLoad(this.gameObject);
 
         for (int i = 0; i < mainMenuManager.MaxLevel; i++)
         {
             stars[i] = 0;
         }
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void OnLevelWasLoaded(int level)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         images = FindObjectsOfType<Image>(includeInactive: true);
         sprites = FindObjectsOfType<SpriteRenderer>(includeInactive: true);
-        changeSetting();
+        ChangeSetting();
     }
 
-    public void changeSetting()
+    public void ChangeSetting()
     {
         Volume postProcessing = FindObjectOfType<Volume>();
         postProcessing.enabled = BloomActive;
+
         foreach (Image I in images)
         {
             foreach (Sprite S in planetSprites)
@@ -67,6 +70,7 @@ public class DontDestroy : MonoBehaviour
                 }
             }
         }
+
         foreach (SpriteRenderer I in sprites)
         {
             foreach (Sprite S in planetSprites)
@@ -82,16 +86,19 @@ public class DontDestroy : MonoBehaviour
         }
     }
 
-    public void AddLevel() {
+    public void AddLevel()
+    {
         currLevel++;
     }
 
-    public void SetLevel(int lvl) {
+    public void SetLevel(int lvl)
+    {
         currLevel = lvl;
     }
 
-    public void SetStars(int currStars) {
-        stars[currLevel] = currStars > stars[currLevel] ? currStars : stars[currLevel];
+    public void SetStars(int currStars)
+    {
+        stars[currLevel] = Mathf.Max(currStars, stars[currLevel]);
 
         starCount = 0;
         for (int I = 0; I < levels; I++)

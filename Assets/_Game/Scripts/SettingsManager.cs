@@ -17,7 +17,7 @@ public class SettingsManager : MonoBehaviour
     {
         dontDestroy.BloomActive = !dontDestroy.BloomActive;
         BloomText.text = "Bloom: " + dontDestroy.BloomActive;
-        dontDestroy.changeSetting();
+        dontDestroy.ChangeSetting();
     }
 
     public void changePlanet(int amount)
@@ -25,6 +25,6 @@ public class SettingsManager : MonoBehaviour
         int newNumber = dontDestroy.planetNumber += amount;
         newNumber = Mathf.Abs(newNumber % dontDestroy.planetSprites.Length);
         dontDestroy.planetNumber = newNumber;
-        dontDestroy.changeSetting();
+        dontDestroy.ChangeSetting();
     }
 }
