@@ -13,10 +13,18 @@ public class Link : MonoBehaviour
 
     private bool connecting = true;
 
+    // Variables to store LineRenderer weights
+    private float startWidth;
+    private float endWidth;
+
     public void Start()
     {
         lineRenderer = GetComponentInChildren<LineRenderer>();
         lineRenderer.enabled = false;
+
+        // Save the LineRenderer weights
+        startWidth = lineRenderer.startWidth;
+        endWidth = lineRenderer.endWidth;
     }
 
     public void Update()
@@ -24,6 +32,10 @@ public class Link : MonoBehaviour
         if (!lineRenderer.enabled && linkable1 != null)
         {
             lineRenderer.enabled = true;
+
+            // Set the LineRenderer weights back
+            lineRenderer.startWidth = startWidth;
+            lineRenderer.endWidth = endWidth;
         }
         if (linkable1 != null)
         {
@@ -31,10 +43,14 @@ public class Link : MonoBehaviour
             Vector3 toPos = GetToPosition();
             float dist = Vector3.Distance(fromPos, toPos);
             float width = Mathf.Clamp(AREA / dist, 0, 1);
+
+            // Update only the positions, not the weights
             lineRenderer.SetPosition(0, fromPos);
             lineRenderer.SetPosition(1, toPos);
-            lineRenderer.startWidth = width / m;
-            lineRenderer.endWidth = width / n;
+
+            // Preserve the LineRenderer weights
+            lineRenderer.startWidth = startWidth * width / m;
+            lineRenderer.endWidth = endWidth * width / n;
         }
     }
     float m = 1.3f, n = 2;
@@ -74,7 +90,6 @@ public class Link : MonoBehaviour
         if (!connecting) return;
         linkable2 = null;
     }
-
 
     public void ActivateConnection()
     {

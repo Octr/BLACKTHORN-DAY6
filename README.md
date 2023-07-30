@@ -15,7 +15,7 @@ Added Abstract Singleton Class
 Fixed Enemy Materials (URP)
 Renamed Game: Connected Planets -> Cosmic Cords
 Added New Main Menu Title Text
-Added Title Screen SFX
+Added Title Screen SFX and Animation
 Removed Redundant Debug Code
 Switched To Linear Color Space
 Refactored DontDestroy.cs
@@ -31,6 +31,9 @@ Major Spaceship Overhaul
     Now With Guns!
 New Post Processing & Lighting Changes
 Updated Star Particles & Added Rainbow Animation
+Reworked All Planet Visuals
+Added Lights & Animations To "Anchors"
+Updated Cables VFX
 
 
 
@@ -55,6 +58,11 @@ https://www.kenney.nl/assets/game-icons-expansion
 https://www.kenney.nl/assets/ui-pack-space-expansion
 https://www.kenney.nl/assets/ui-pack
 
+SFX:
+https://pixabay.com/users/pixabay-1/
+
+MUSIC:
+https://pixabay.com/users/lesfm-22579021/
 
 Font:
 https://www.dafont.com/retro-stereo-wide.font?l[]=10&l[]=1&text=Cosmic+Cords
