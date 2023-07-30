@@ -16,6 +16,7 @@ Fixed Enemy Materials (URP)
 Renamed Game
 Removed Redundant Debug Code
 Switched To Linear Color Space
+Refactored DontDestroy.cs
 
 
 
