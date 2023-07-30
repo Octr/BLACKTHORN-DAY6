@@ -16,7 +16,6 @@ public class StarCollectible : MonoBehaviour
         if(collision.gameObject.layer == Planet.LAYER) {            
             if (true || collision.gameObject.GetComponent<Linkable>().isPlanet) {
                 gameLogic.currStars++;
-                Debug.Log("Stars Collected: " + gameLogic.currStars);
                 starLevelDisplayer.UpdateStars(gameLogic.currStars);
                 Destroy(gameObject);
             }

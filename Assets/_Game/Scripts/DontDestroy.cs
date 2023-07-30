@@ -41,8 +41,6 @@ public class DontDestroy : MonoBehaviour
         {
             stars[i] = 0;
         }
-        Debug.Log("Level: " + mainMenuManager.MaxLevel);
-        Debug.Log("Stars: " + stars.Count);
     }
 
     private void OnLevelWasLoaded(int level)
@@ -58,7 +56,6 @@ public class DontDestroy : MonoBehaviour
         postProcessing.enabled = BloomActive;
         foreach (Image I in images)
         {
-            print(I);
             foreach (Sprite S in planetSprites)
             {
                 if (I.sprite == S)
@@ -72,7 +69,6 @@ public class DontDestroy : MonoBehaviour
         }
         foreach (SpriteRenderer I in sprites)
         {
-            print(I);
             foreach (Sprite S in planetSprites)
             {
                 if (I.sprite == S)
@@ -92,13 +88,10 @@ public class DontDestroy : MonoBehaviour
 
     public void SetLevel(int lvl) {
         currLevel = lvl;
-        Debug.Log("Set level to " + lvl + " curr level was" + currLevel);
     }
 
     public void SetStars(int currStars) {
-        Debug.Log("Stars Collected: " + currStars + " for level " + (currLevel) + "");
         stars[currLevel] = currStars > stars[currLevel] ? currStars : stars[currLevel];
-        Debug.Log("Set stars for level " + (currLevel+1) + " to " + stars[currLevel] + " at index " + (currLevel) );
 
         starCount = 0;
         for (int I = 0; I < levels; I++)
