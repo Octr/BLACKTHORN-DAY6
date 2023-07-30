@@ -30,6 +30,7 @@ Major Spaceship Overhaul
     Stop Animation, SFX and Particles
     Now With Guns!
 New Post Processing & Lighting Changes
+Updated Star Particles & Added Rainbow Animation
 
 
 
