@@ -15,6 +15,7 @@ Added Abstract Singleton Class
 Fixed Enemy Materials (URP)
 Renamed Game: Connected Planets -> Cosmic Cords
 Added New Main Menu Title Text
+Added Title Screen SFX
 Removed Redundant Debug Code
 Switched To Linear Color Space
 Refactored DontDestroy.cs
