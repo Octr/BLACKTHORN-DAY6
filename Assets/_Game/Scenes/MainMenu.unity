@@ -15528,10 +15528,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spaceship
       objectReference: {fileID: 0}
-    - target: {fileID: 2807635570690412476, guid: 7cf33f7a85cc0144ebbf8c13f8515b69, type: 3}
-      propertyPath: blendDecreaseSpeed
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5947544641100982136, guid: 7cf33f7a85cc0144ebbf8c13f8515b69, type: 3}
       propertyPath: m_RootOrder
       value: -1

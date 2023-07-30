@@ -9,9 +9,16 @@ public class SpaceshipAnimatorController : MonoBehaviour
     public float blendThreshold = 0.05f; // Threshold to prevent choppiness when blend weight is close to 0
     public string blendTreeParameter = "Speed"; // The parameter name for the blend tree in the Animator
 
+    public GameObject selfDestructPrefab;
+    public float selfDestructTimer = 3f;
+    public float spawnDelay = 1f; // Delay before spawning the self-destruct game object
+
     private Vector3 previousPosition;
     private float currentSpeed = 0f;
     private float targetBlendWeight = 0f;
+
+    private bool isMoving = false;
+    private bool shouldSpawn = false;
 
     private void Start()
     {
@@ -47,11 +54,43 @@ public class SpaceshipAnimatorController : MonoBehaviour
         // Check if the target blend weight is below the threshold
         if (targetBlendWeight <= blendThreshold)
         {
+            // Spaceship stops moving
+            if (isMoving)
+            {
+                // Start the timer to spawn the self-destruct game object
+                shouldSpawn = true;
+
+                // Set the isMoving flag to false to prevent repeated spawning
+                isMoving = false;
+            }
+
+            // Set blend weight to 0
             spaceshipAnimator.SetFloat(blendTreeParameter, 0f);
         }
         else
         {
+            // Spaceship is moving
+            isMoving = true;
             spaceshipAnimator.SetFloat(blendTreeParameter, Mathf.Lerp(currentBlendWeight, targetBlendWeight, Time.deltaTime * blendDecreaseSpeed));
+        }
+
+        // Handle self-destruct game object spawning
+        if (shouldSpawn)
+        {
+            spawnDelay -= Time.deltaTime;
+
+            if (spawnDelay <= 0f)
+            {
+                // Spawn the self-destruct game object after the delay
+                if (selfDestructPrefab != null)
+                {
+                    Instantiate(selfDestructPrefab, transform.position, Quaternion.identity);
+                }
+
+                // Reset the spawn delay and shouldSpawn flag
+                spawnDelay = 1f;
+                shouldSpawn = false;
+            }
         }
     }
 }

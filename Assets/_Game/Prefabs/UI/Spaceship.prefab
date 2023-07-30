@@ -534,8 +534,12 @@ MonoBehaviour:
   spaceshipAnimator: {fileID: 4559963829260923340}
   speedMultiplier: 0.1
   blendIncreaseSpeed: 2
-  blendDecreaseSpeed: 0.2
+  blendDecreaseSpeed: 2
+  blendThreshold: 0.1
   blendTreeParameter: Speed
+  selfDestructPrefab: {fileID: 694745789452910641, guid: 8ec49c412069ace499b24a3b80bcc4d9, type: 3}
+  selfDestructTimer: 3
+  spawnDelay: 0
 --- !u!95 &4559963829260923340
 Animator:
   serializedVersion: 5
