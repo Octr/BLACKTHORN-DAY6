@@ -173,6 +173,8 @@ MonoBehaviour:
   - {fileID: 630344375}
   - {fileID: 2119901379}
   - {fileID: 2109723333}
+  isWeaponSequence: 0
+  isTutorialSequence: 1
 --- !u!4 &275984938 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4729215584403953369, guid: b92f4fa05fe7054a794d235f20d5228e, type: 3}

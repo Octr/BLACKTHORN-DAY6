@@ -75,6 +75,11 @@ public class MainMenu : MonoBehaviour
     {
         gameManager.SetLevel(m-1);
         SceneManager.LoadScene("Level " + m);
+
+        if(m >= 6)
+        {
+            BulletShooter.Instance.isUnlocked = true;
+        }
     }
 
     public void QuitGame()

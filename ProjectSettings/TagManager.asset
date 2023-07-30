@@ -7,6 +7,9 @@ TagManager:
   - LinkParent
   - gameManager
   - Planet
+  - Spaceship
+  - Enemy
+  - Bullet
   layers:
   - Default
   - TransparentFX

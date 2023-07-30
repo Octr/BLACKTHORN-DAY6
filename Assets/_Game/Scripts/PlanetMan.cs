@@ -5,10 +5,19 @@ using UnityEngine;
 public class PlanetManager : Singleton<PlanetManager>
 {
     [SerializeField] public GameObject[] Planets;
+    public bool isWeaponSequence;
+    public bool isTutorialSequence;
 
     public void Start()
     {
-        GameLogic.Instance.isTutorial = true;   
+        BulletShooter.Instance.isUnlocked = true;
+
+        if (isTutorialSequence)
+        {
+            BulletShooter.Instance.isUnlocked = false;
+        }
+
+        GameLogic.Instance.isTutorial = true;
     }
 
     public void EnablePlanets()
@@ -18,5 +27,12 @@ public class PlanetManager : Singleton<PlanetManager>
             planet.SetActive(true);
             GameLogic.Instance.isTutorial = false;
         }
+
+        if (isWeaponSequence)
+        {
+            BulletShooter.Instance.isUnlocked = true;
+        }
+
+
     }
 }
