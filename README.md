@@ -13,7 +13,8 @@ Upgrade Unity Version to (2022.3.4f1)
 Cleaned / Reorganized Assets Folder Structure
 Added Abstract Singleton Class
 Fixed Enemy Materials (URP)
-Renamed Game
+Renamed Game: Connected Planets -> Cosmic Cords
+Added New Main Menu Title Text
 Removed Redundant Debug Code
 Switched To Linear Color Space
 Refactored DontDestroy.cs
