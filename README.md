@@ -17,6 +17,7 @@ Renamed Game
 Removed Redundant Debug Code
 Switched To Linear Color Space
 Refactored DontDestroy.cs
+Added MusicManager which randomly plays over 11 new songs!
 
 
 
