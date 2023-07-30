@@ -30,3 +30,4 @@ https://www.kenney.nl/assets/crosshair-pack
 https://www.kenney.nl/assets/space-kit
 https://www.kenney.nl/assets/generic-items
 https://www.kenney.nl/assets/alien-ufo-pack
+https://www.kenney.nl/assets/smoke-particles
