@@ -28,3 +28,4 @@ https://www.kenney.nl/assets/splat-pack
 https://www.kenney.nl/assets/monster-builder-pack
 https://www.kenney.nl/assets/crosshair-pack
 https://www.kenney.nl/assets/space-kit
+https://www.kenney.nl/assets/generic-items
