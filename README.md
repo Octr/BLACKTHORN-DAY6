@@ -18,6 +18,14 @@ Removed Redundant Debug Code
 Switched To Linear Color Space
 Refactored DontDestroy.cs
 Added MusicManager which randomly plays over 11 new songs!
+Added New Cursors
+Major Spaceship Overhaul
+    Trails
+    New 3D Model
+    New Velocity Based SFX
+    Smooth Rotation / Movement
+    Ship Lighting With Animation
+New Post Processing & Lighting Changes
 
 
 
