@@ -24,3 +24,4 @@ https://www.kenney.nl/assets/simple-space
 https://www.kenney.nl/assets/emotes-pack
 https://www.kenney.nl/assets/particle-pack
 https://www.kenney.nl/assets/pattern-pack-2
+https://www.kenney.nl/assets/splat-pack
