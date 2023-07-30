@@ -94,8 +94,8 @@ Material:
     - _Surface: 0
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.46393734, g: 0.48626328, b: 0.6792453, a: 1}
-    - _Color: {r: 0.46393728, g: 0.48626322, b: 0.6792453, a: 1}
+    - _BaseColor: {r: 0.24200785, g: 0.24956925, b: 0.31132078, a: 1}
+    - _Color: {r: 0.24200782, g: 0.2495692, b: 0.31132075, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
