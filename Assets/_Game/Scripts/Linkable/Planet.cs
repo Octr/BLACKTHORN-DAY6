@@ -15,7 +15,7 @@ public class Planet : Linkable {
 
     public AudioClip kissAudio;
     public AudioClip yayAudio;
-    public AudioClip concernedAudio;
+    public AudioClip giggleAudio;
 
     private bool saved = false;
 
