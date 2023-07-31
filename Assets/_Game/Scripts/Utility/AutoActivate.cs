@@ -7,6 +7,9 @@ public class AutoActivate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.SetActive(true);
+        foreach(Transform child in gameObject.GetComponentInChildren<Transform>())
+        {
+            child.gameObject.SetActive(true);
+        }
     }
 }
