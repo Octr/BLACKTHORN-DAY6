@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyTracker : Singleton<EnemyTracker>
 {
     public List<GameObject> activeEnemies = new List<GameObject>();
+    public int maxEnemyCounter;
 
     public int enemyCount => activeEnemies.Count;
 

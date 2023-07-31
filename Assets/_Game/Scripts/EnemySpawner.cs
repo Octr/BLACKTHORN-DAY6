@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
     {
         // Spawn enemies continuously
         InvokeRepeating("SpawnEnemy", 1f, 2f);
+        EnemyTracker.Instance.maxEnemyCounter = 0; // Reset Spawners
     }
 
     private void SpawnEnemy()
@@ -19,15 +20,15 @@ public class EnemySpawner : MonoBehaviour
             return;
         }
 
-        if (Singleton<EnemyTracker>.Instance.enemyCount >= maxSpawnLimit)
-        {
-            return;
-        }
+        if (EnemyTracker.Instance.enemyCount >= maxSpawnLimit) return;
+
+        if (EnemyTracker.Instance.maxEnemyCounter >= maxSpawnLimit) return;
 
         int randomIndex = Random.Range(0, enemyPrefabs.Length);
         GameObject enemyPrefab = enemyPrefabs[randomIndex];
 
         GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+        EnemyTracker.Instance.maxEnemyCounter++;
         Singleton<EnemyTracker>.Instance.AddEnemy(enemy);
     }
 }
