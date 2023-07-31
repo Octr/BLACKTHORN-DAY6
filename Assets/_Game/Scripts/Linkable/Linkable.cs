@@ -121,8 +121,10 @@ public class Linkable : MonoBehaviour {
         if (gameObject.CompareTag("Planet") && collision.gameObject.CompareTag("Planet"))
         {
             Instantiate(burst, transform.position, transform.rotation);
-            collision.gameObject.GetComponent<Planet>().kissAudio.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
-            collision.gameObject.GetComponent<Planet>().kissAudio.Play();
+            Planet tempPlanet = collision.gameObject.GetComponent<Planet>();
+            tempPlanet.planetAudio.clip = tempPlanet.kissAudio;
+            tempPlanet.planetAudio.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
+            tempPlanet.planetAudio.Play();
         }
         else
         {

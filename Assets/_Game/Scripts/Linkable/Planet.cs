@@ -10,7 +10,12 @@ public class Planet : Linkable {
     [SerializeField] private float baseLinearDrag = 2f;
     [SerializeField] private float linkedLinearDrag = .25f;
     [SerializeField] private float savedLinearDrag = 4f;
-    [SerializeField] public AudioSource kissAudio;
+
+    public AudioSource planetAudio;
+
+    public AudioClip kissAudio;
+    public AudioClip yayAudio;
+    public AudioClip concernedAudio;
 
     private bool saved = false;
 
@@ -35,5 +40,12 @@ public class Planet : Linkable {
     private void UpdateDrag() {
         float drag = saved ? savedLinearDrag : (links.Count > 0 ? linkedLinearDrag : baseLinearDrag);
         GetComponent<Rigidbody2D>().drag = drag;
+    }
+
+    public void YayAudio()
+    {
+        planetAudio.clip = yayAudio;
+        planetAudio.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
+        planetAudio.Play();
     }
 }
