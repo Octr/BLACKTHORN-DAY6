@@ -58,4 +58,9 @@ public class EnemyScript : MonoBehaviour
             Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
         }
     }
+
+    private void OnDestroy()
+    {
+        EnemyTracker.Instance.RemoveEnemy(gameObject);
+    }
 }
