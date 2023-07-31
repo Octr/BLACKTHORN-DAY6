@@ -12,7 +12,7 @@ public class UI : MonoBehaviour {
     }
 
     private void OnDrawGizmos() {
-        UpdateLevelName();
+        //UpdateLevelName();
     }
 
     private void UpdateLevelName() {
