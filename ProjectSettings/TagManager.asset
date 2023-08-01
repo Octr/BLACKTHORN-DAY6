@@ -47,9 +47,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 79533811
+    locked: 0
   - name: Links
     uniqueID: 1879829659
     locked: 0
   - name: Linkables
     uniqueID: 47156339
+    locked: 0
+  - name: UI
+    uniqueID: 3039132549
     locked: 0

@@ -187,7 +187,7 @@ SortingGroup:
   m_GameObject: {fileID: 1175615308803054593}
   m_Enabled: 1
   m_SortingLayerID: 47156339
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_SortAtRoot: 0
 --- !u!1 &1844552091943226598
@@ -408,7 +408,7 @@ SortingGroup:
   m_GameObject: {fileID: 2200939914939455908}
   m_Enabled: 1
   m_SortingLayerID: 47156339
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_SortAtRoot: 0
 --- !u!1 &2410361838555695726
@@ -848,7 +848,7 @@ SortingGroup:
   m_GameObject: {fileID: 4549276108391066247}
   m_Enabled: 1
   m_SortingLayerID: 47156339
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_SortAtRoot: 0
 --- !u!1 &5018056143488923304
@@ -943,7 +943,7 @@ SortingGroup:
   m_GameObject: {fileID: 5018056143488923304}
   m_Enabled: 1
   m_SortingLayerID: 47156339
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_SortAtRoot: 0
 --- !u!1 &8741123512678454648
@@ -1038,7 +1038,7 @@ SortingGroup:
   m_GameObject: {fileID: 8741123512678454648}
   m_Enabled: 1
   m_SortingLayerID: 47156339
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_SortAtRoot: 0
 --- !u!1001 &1732036758045310932

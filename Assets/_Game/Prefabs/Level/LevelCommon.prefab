@@ -257,7 +257,7 @@ Transform:
   - {fileID: 169100450937063663}
   - {fileID: 669417754853183235}
   m_Father: {fileID: 2182349447687154999}
-  m_RootOrder: -2
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &695033207120178017
 GameObject:
@@ -345,6 +345,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7171319888239055405}
   - component: {fileID: 8826846237091206526}
+  - component: {fileID: 7564298224472004761}
   m_Layer: 0
   m_Name: Clouds
   m_TagString: Untagged
@@ -412,13 +413,25 @@ SpriteRenderer:
   m_Color: {r: 0.26415092, g: 0.26265574, b: 0.26265574, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 2
   m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7564298224472004761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937673076893922829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a15ffeef04ab14f985e29507e5ad83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1163218940655581911
 GameObject:
   m_ObjectHideFlags: 0
@@ -5605,12 +5618,12 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5116216897714849269}
+  - {fileID: 3105915810235028061}
   - {fileID: 3142364819651983967}
   - {fileID: 583796552957488019}
   - {fileID: 7440959366224251526}
   - {fileID: 4325345601382887775}
   - {fileID: 7423705118066262541}
-  - {fileID: 3105915810235028061}
   - {fileID: 6264601939853556738}
   - {fileID: 9056565789778610344}
   m_Father: {fileID: 0}
@@ -11094,6 +11107,7 @@ GameObject:
   - component: {fileID: 2807503598800595928}
   - component: {fileID: 6208034379456643828}
   - component: {fileID: 4720232506560028941}
+  - component: {fileID: 3483103501236792220}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -11219,6 +11233,21 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &3483103501236792220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7341480560238106075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32b2d88f52915745b5f36db53fe660f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomSpeed: 1
+  minZoomSize: 2
+  maxZoomSize: 10
 --- !u!1 &7722035710757461100
 GameObject:
   m_ObjectHideFlags: 0
