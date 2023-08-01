@@ -6,25 +6,23 @@ using UnityEngine;
 public class SettingsManager : MonoBehaviour
 {
     public TextMeshProUGUI BloomText;
-    public DontDestroy dontDestroy;
 
     private void Start()
     {
-        dontDestroy = GameObject.FindObjectOfType<DontDestroy>();
-        BloomText.text = "Bloom: " + dontDestroy.BloomActive;
+        BloomText.text = "Bloom: " + DontDestroy.Instance.BloomActive;
     }
     public void ToggleBloom()
     {
-        dontDestroy.BloomActive = !dontDestroy.BloomActive;
-        BloomText.text = "Bloom: " + dontDestroy.BloomActive;
-        dontDestroy.ChangeSetting();
+        DontDestroy.Instance.BloomActive = !DontDestroy.Instance.BloomActive;
+        BloomText.text = "Bloom: " + DontDestroy.Instance.BloomActive;
+        DontDestroy.Instance.ChangeSetting();
     }
 
     public void changePlanet(int amount)
     {
-        int newNumber = dontDestroy.planetNumber += amount;
-        newNumber = Mathf.Abs(newNumber % dontDestroy.planetSprites.Length);
-        dontDestroy.planetNumber = newNumber;
-        dontDestroy.ChangeSetting();
+        int newNumber = DontDestroy.Instance.planetNumber += amount;
+        newNumber = Mathf.Abs(newNumber % DontDestroy.Instance.planetSprites.Length);
+        DontDestroy.Instance.planetNumber = newNumber;
+        DontDestroy.Instance.ChangeSetting();
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
-public class DontDestroy : MonoBehaviour
+public class DontDestroy : Singleton<DontDestroy>
 {
     public Dictionary<int, int> stars = new Dictionary<int, int>();
     public int starCount;
@@ -20,8 +20,9 @@ public class DontDestroy : MonoBehaviour
     private Image[] images;
     private SpriteRenderer[] sprites;
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         images = FindObjectsOfType<Image>(includeInactive: true);
         sprites = FindObjectsOfType<SpriteRenderer>(includeInactive: true);
         ChangeSetting();

@@ -3,7 +3,6 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     public float movementSpeed = 5f;
-    public AudioClip hitSoundEffect;
     public GameObject deathEffectPrefab;
 
     private Transform spaceship;
@@ -49,10 +48,8 @@ public class EnemyScript : MonoBehaviour
 
     private void DestroyEnemy()
     {
-        AudioSource audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.PlayOneShot(hitSoundEffect);
-        Destroy(gameObject, hitSoundEffect.length);
-        Destroy(audioSource, hitSoundEffect.length);
+        AudioManager.Instance.Play2DSoundEffect(SoundEffect.sfx_zap, 1f, 0.8f, 1.2f);
+
         if (deathEffectPrefab != null)
         {
             Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);

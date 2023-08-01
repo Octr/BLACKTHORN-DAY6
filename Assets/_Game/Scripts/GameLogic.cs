@@ -13,7 +13,6 @@ public class GameLogic : Singleton<GameLogic>
 
     public int currStars;
 
-    public DontDestroy gameManager;
     public class WinTimerProgressEventArgs : EventArgs {
         public float progressNormalized;
     }
@@ -22,9 +21,6 @@ public class GameLogic : Singleton<GameLogic>
 
     private float winTimer = 0f;
     private int levelId;
-
-    public AudioSource retrySound;
-    public AudioSource homeSound;
 
     protected override void Awake() {
         base.Awake();
@@ -35,12 +31,6 @@ public class GameLogic : Singleton<GameLogic>
             Debug.LogError("Could not parse level id from scene name: " + currentScene.name);
         }
         currStars = 0;
-    }
-
-    void Start() {
-        gameManager = GameObject.Find("planetsGameManager").GetComponent<DontDestroy>();
-        retrySound = GameObject.Find("RetrySound").GetComponent<AudioSource>();
-        homeSound = GameObject.Find("HomeSound").GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -87,35 +77,33 @@ public class GameLogic : Singleton<GameLogic>
             }
         }
         if(exists) {
-            gameManager.SetStars(currStars);
-            gameManager.AddLevel();
+            DontDestroy.Instance.SetStars(currStars);
+            DontDestroy.Instance.AddLevel();
             SceneManager.LoadScene(name);
         } else {
-            gameManager.SetStars(currStars);
+            DontDestroy.Instance.SetStars(currStars);
             SceneManager.LoadScene("MainMenu");
         }
     }
 
     public void RetryLevel() {
-        StartCoroutine(retryLevel(retrySound));
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        StartCoroutine(retryLevel());
     }
 
     public void GoHome()
     {
-        StartCoroutine(goHome(homeSound));
-        //SceneManager.LoadScene("MainMenu");
+        StartCoroutine(goHome());
     }
 
-    IEnumerator retryLevel(AudioSource sound) {
-        sound.Play();
-        yield return new WaitWhile (()=> sound.isPlaying);
+    IEnumerator retryLevel() {
+        AudioSource retryAudio = AudioManager.Instance.Play2DSoundEffect(SoundEffect.Replay, 1f, 0.8f, 1.2f);
+        yield return new WaitWhile (()=> retryAudio.isPlaying);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    IEnumerator goHome(AudioSource sound) {
-        sound.Play();
-        yield return new WaitWhile (()=> sound.isPlaying);
+    IEnumerator goHome() {
+        AudioSource homeAudio = AudioManager.Instance.Play2DSoundEffect(SoundEffect.Home, 1f, 0.8f, 1.2f);
+        yield return new WaitWhile (()=> homeAudio.isPlaying);
         SceneManager.LoadScene("MainMenu");
     }
 }

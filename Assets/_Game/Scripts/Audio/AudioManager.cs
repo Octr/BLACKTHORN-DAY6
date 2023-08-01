@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 // AudioManager using Singleton pattern and Object Pooling for AudioSources
 public class AudioManager : Singleton<AudioManager>
@@ -57,74 +58,90 @@ public class AudioManager : Singleton<AudioManager>
 
     private void CreateAudioSource()
     {
-        // Create a new GameObject to hold the AudioSource component
         GameObject obj = new GameObject("AudioSource");
         obj.transform.SetParent(transform);
 
-        // Add AudioSource component and disable it to be used later
         AudioSource audioSource = obj.AddComponent<AudioSource>();
         audioSource.playOnAwake = false;
+        obj.SetActive(false);
+
         audioSourcePool.Enqueue(audioSource);
     }
 
-    public void Play2DSoundEffect(SoundEffect soundEffect, float volume = 1.0f, float pitchMin = 1.0f, float pitchMax = 1.0f)
+    public AudioSource Play2DSoundEffect(SoundEffect soundEffect, float volume = 1.0f, float pitchMin = 1.0f, float pitchMax = 1.0f, bool isOneShot = true)
     {
-        PlaySoundEffect(soundEffect, Vector3.zero, volume, pitchMin, pitchMax, 0f);
+        return PlaySoundEffect(soundEffect, Vector3.zero, volume, pitchMin, pitchMax, 0f, isOneShot);
     }
 
-    public void Play3DSoundEffect(SoundEffect soundEffect, Vector3 position, float volume = 1.0f, float pitchMin = 1.0f, float pitchMax = 1.0f, float minDistance = 1.0f, float maxDistance = 10.0f)
+    public AudioSource Play3DSoundEffect(SoundEffect soundEffect, Vector3 position, float volume = 1.0f, float pitchMin = 1.0f, float pitchMax = 1.0f, float minDistance = 1.0f, float maxDistance = 10.0f, bool isOneShot = true)
     {
-        PlaySoundEffect(soundEffect, position, volume, pitchMin, pitchMax, 1f, minDistance, maxDistance);
+        return PlaySoundEffect(soundEffect, position, volume, pitchMin, pitchMax, 1f, isOneShot, minDistance, maxDistance);
     }
 
-    private void PlaySoundEffect(SoundEffect soundEffect, Vector3 position, float volume, float pitchMin, float pitchMax, float spatialBlend, float minDistance = 1.0f, float maxDistance = 10.0f)
+    private AudioSource PlaySoundEffect(SoundEffect soundEffect, Vector3 position, float volume, float pitchMin, float pitchMax, float spatialBlend, bool isOneShot, float minDistance = 1.0f, float maxDistance = 10.0f)
     {
-        // Check if the audio clip exists in the dictionary
         if (!audioClipDictionary.ContainsKey(soundEffect))
         {
             Debug.LogWarning("Audio clip for SoundEffect '" + soundEffect + "' not found!");
-            return;
+            return null;
         }
 
         List<AudioClip> clips = audioClipDictionary[soundEffect];
         if (clips.Count == 0)
         {
             Debug.LogWarning("No audio clips found for SoundEffect '" + soundEffect + "'!");
-            return;
+            return null;
         }
 
-        // Get a random audio clip from the list
         AudioClip clip = clips[Random.Range(0, clips.Count)];
 
-        // Get an AudioSource from the pool and play the sound effect
-        if (audioSourcePool.Count > 0)
+        AudioSource audioSource = GetAvailableAudioSource();
+
+        audioSource.volume = volume;
+        audioSource.pitch = Random.Range(pitchMin, pitchMax);
+        audioSource.clip = clip;
+
+        audioSource.spatialBlend = spatialBlend;
+        audioSource.minDistance = minDistance;
+        audioSource.maxDistance = maxDistance;
+
+        audioSource.loop = !isOneShot;
+
+        if (spatialBlend > 0)
         {
-            AudioSource audioSource = audioSourcePool.Dequeue();
-            audioSource.volume = volume;
-            audioSource.pitch = Random.Range(pitchMin, pitchMax);
-            audioSource.clip = clip;
-
-            // Set spatial properties for 3D audio
-            audioSource.spatialBlend = spatialBlend;
-            audioSource.minDistance = minDistance;
-            audioSource.maxDistance = maxDistance;
-
-            // Set the 3D position of the audio source if 3D audio
-            if (spatialBlend > 0)
-            {
-                audioSource.transform.position = position;
-            }
-
-            audioSource.Play();
-
-            // Return the AudioSource to the pool after the sound has finished playing
-            StartCoroutine(ReturnAudioSourceToPool(audioSource));
+            audioSource.transform.position = position;
         }
+
+        audioSource.gameObject.SetActive(true);
+
+        audioSource.Play();
+
+        StartCoroutine(ReturnAudioSourceToPool(audioSource));
+
+        return audioSource;
     }
 
     private System.Collections.IEnumerator ReturnAudioSourceToPool(AudioSource audioSource)
     {
         yield return new WaitForSeconds(audioSource.clip.length);
+        audioSource.gameObject.SetActive(false);
         audioSourcePool.Enqueue(audioSource);
+    }
+
+    private AudioSource GetAvailableAudioSource()
+    {
+        if (audioSourcePool.Count > 0)
+        {
+            AudioSource audioSource = audioSourcePool.Dequeue();
+            audioSource.gameObject.SetActive(true);
+            return audioSource;
+        }
+
+        GameObject obj = new GameObject("AudioSource");
+        obj.transform.SetParent(transform);
+        AudioSource newAudioSource = obj.AddComponent<AudioSource>();
+        newAudioSource.playOnAwake = false;
+
+        return newAudioSource;
     }
 }

@@ -636,8 +636,6 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 8571895987480020390}
   bulletPrefab: {fileID: 6359736196040678938, guid: f0a01220b068dad499b04125efb635fe, type: 3}
   shootingCooldown: 0.2
-  shootingAudioSource: {fileID: 4723400047303361730}
-  shootingSound: {fileID: 8300000, guid: 1595052545efe1f4aa48d758199fa97a, type: 3}
   isUnlocked: 0
 --- !u!82 &4723400047303361730
 AudioSource:

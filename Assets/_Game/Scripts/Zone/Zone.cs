@@ -35,7 +35,7 @@ public class Zone : MonoBehaviour {
             {
                 planetCount++;
                 collision.gameObject.GetComponent<Planet>().SetSaved(true);
-                collision.gameObject.GetComponent <Planet>().YayAudio();
+                AudioManager.Instance.Play2DSoundEffect(SoundEffect.Yay, 1f, 0.8f, 1.2f);
             }
             
         }

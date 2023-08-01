@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.right * bulletSpeed;
         rb.gravityScale = 0f;
         StartCoroutine(SelfDestruct());
+        AudioManager.Instance.Play2DSoundEffect(SoundEffect.sfx_laser2);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

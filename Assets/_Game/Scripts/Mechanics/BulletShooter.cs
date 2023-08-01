@@ -5,8 +5,6 @@ public class BulletShooter : Singleton<BulletShooter>
     public Transform bulletSpawnPoint;
     public GameObject bulletPrefab;
     public float shootingCooldown = 0.5f;
-    public AudioSource shootingAudioSource;
-    public AudioClip shootingSound;
     public bool isUnlocked = false;
 
     private float shootingTimer = 0f;
@@ -47,9 +45,6 @@ public class BulletShooter : Singleton<BulletShooter>
         }
 
         // Play the shooting sound effect
-        if (shootingAudioSource != null && shootingSound != null)
-        {
-            shootingAudioSource.PlayOneShot(shootingSound);
-        }
+        AudioManager.Instance.Play2DSoundEffect(SoundEffect.sfx_laser2, 1f, 0.8f, 1.2f);
     }
 }

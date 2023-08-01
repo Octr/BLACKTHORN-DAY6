@@ -11,12 +11,6 @@ public class Planet : Linkable {
     [SerializeField] private float linkedLinearDrag = .25f;
     [SerializeField] private float savedLinearDrag = 4f;
 
-    public AudioSource planetAudio;
-
-    public AudioClip kissAudio;
-    public AudioClip yayAudio;
-    public AudioClip giggleAudio;
-
     private bool saved = false;
 
     private void Start() {
@@ -42,10 +36,4 @@ public class Planet : Linkable {
         GetComponent<Rigidbody2D>().drag = drag;
     }
 
-    public void YayAudio()
-    {
-        planetAudio.clip = yayAudio;
-        planetAudio.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
-        planetAudio.Play();
-    }
 }

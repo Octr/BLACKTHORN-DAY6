@@ -62,7 +62,7 @@ public class MainMenu : MonoBehaviour
     }
 
     public void PlayButtonSound() {
-        GameObject.Find("clickButton").GetComponent<AudioSource>().Play();
+        AudioManager.Instance.Play2DSoundEffect(SoundEffect.blipSelect);
     }
 
     public void StartGame()

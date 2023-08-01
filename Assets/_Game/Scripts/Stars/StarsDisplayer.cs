@@ -5,18 +5,16 @@ using TMPro;
 
 public class StarsDisplayer : MonoBehaviour
 {
-    public DontDestroy gameManager;
     public TextMeshProUGUI starsText;
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("planetsGameManager").GetComponent<DontDestroy>();
-        SetStarsText(gameManager.stars[0]);
+        SetStarsText(DontDestroy.Instance.stars[0]);
     }
 
     // Update is called once per frame
     public void LevelSelected(int lvl) {
-        SetStarsText(gameManager.stars[lvl]);
+        SetStarsText(DontDestroy.Instance.stars[lvl]);
     }
 
     private void SetStarsText(int stars) {

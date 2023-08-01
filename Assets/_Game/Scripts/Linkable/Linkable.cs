@@ -11,7 +11,6 @@ public class Linkable : MonoBehaviour {
     [SerializeField] private Link linkPrefab;
     [SerializeField] private float selectRadius = 1f;
     [SerializeField] private GameObject burst;
-    [SerializeField] private AudioSource bonkSound;
 
     private bool selected = false;
     private Link createdLink;
@@ -21,7 +20,6 @@ public class Linkable : MonoBehaviour {
 
     private void Awake() {
         links = new List<Link>();
-        bonkSound = GameObject.Find("Bonk").GetComponent<AudioSource>();
     }
 
     private void Update() {
@@ -122,15 +120,12 @@ public class Linkable : MonoBehaviour {
         {
             Instantiate(burst, transform.position, transform.rotation);
             Planet tempPlanet = collision.gameObject.GetComponent<Planet>();
-            tempPlanet.planetAudio.clip = tempPlanet.kissAudio;
-            tempPlanet.planetAudio.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
-            tempPlanet.planetAudio.Play();
+            AudioManager.Instance.Play2DSoundEffect(SoundEffect.Kiss, 1f, 0.8f, 1.2f);
         }
         else
         {
             Instantiate(burst, transform.position, transform.rotation);
-            bonkSound.pitch = UnityEngine.Random.Range(0.6f, 1.6f);
-            bonkSound.Play();
+            AudioManager.Instance.Play2DSoundEffect(SoundEffect.Bonk, 1f, 0.6f, 1.6f);
         }
         
     }

@@ -9,22 +9,18 @@ public class ButtonMenuSelect : MonoBehaviour, IPointerEnterHandler, IPointerExi
     bool Select;
     public string String_;
 
-    private AudioSource buttonSound;
-    private AudioSource buttonClickSound;
     private void Start()
     {
         String_ = GetComponent<TextMeshProUGUI>().text;
-        buttonSound = GameObject.Find("blipButton").GetComponent<AudioSource>();
-        buttonClickSound = GameObject.Find("clickButton").GetComponent<AudioSource>();
     }
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        buttonClickSound.Play();
+        AudioManager.Instance.Play2DSoundEffect(SoundEffect.Click);
         Select = false;
     }
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
-        buttonSound.Play();
+        AudioManager.Instance.Play2DSoundEffect(SoundEffect.blipSelect);
         Select = true;
     }
 
