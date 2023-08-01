@@ -1,3 +1,6 @@
+# JOIN DISCORD
+Link: https://discord.gg/9h3ZKjV29P
+
 # BLACKTHORN-DAY6
  For DAY 6 - Pass the GAME Challenge 2023
 
