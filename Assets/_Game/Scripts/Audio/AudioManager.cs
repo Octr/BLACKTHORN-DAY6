@@ -14,11 +14,6 @@ public class AudioManager : Singleton<AudioManager>
     // Dictionary to store audio clips with their corresponding SoundEffect enum
     private Dictionary<SoundEffect, List<AudioClip>> audioClipDictionary = new Dictionary<SoundEffect, List<AudioClip>>();
 
-    public void Start()
-    {
-        Play2DSoundEffect(SoundEffect.Bonk, 1f, 0.8f, 1.2f);
-    }
-
     protected override void Awake()
     {
         base.Awake();
