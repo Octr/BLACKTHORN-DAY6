@@ -54,6 +54,8 @@ public class EnemyScript : MonoBehaviour
         {
             Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
         }
+        
+        Destroy(gameObject);
     }
 
     private void OnDestroy()
