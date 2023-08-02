@@ -7,6 +7,7 @@ public class AudioManager : Singleton<AudioManager>
 {
     // Object pool for audio sources
     private Queue<AudioSource> audioSourcePool = new Queue<AudioSource>();
+    private Dictionary<SoundEffect, List<AudioSource>> activeAudioSources = new Dictionary<SoundEffect, List<AudioSource>>();
     private const int initialPoolSize = 10;
 
     // Reference to the SoundEffectData ScriptableObject
@@ -56,17 +57,23 @@ public class AudioManager : Singleton<AudioManager>
         }
     }
 
-    private void CreateAudioSource()
+    private AudioSource CreateAudioSource()
     {
+        if (audioSourcePool.Count > 0)
+        {
+            AudioSource audioSource = audioSourcePool.Dequeue();
+            audioSource.gameObject.SetActive(true);
+            return audioSource;
+        }
+
         GameObject obj = new GameObject("AudioSource");
         obj.transform.SetParent(transform);
+        AudioSource newAudioSource = obj.AddComponent<AudioSource>();
+        newAudioSource.playOnAwake = false;
 
-        AudioSource audioSource = obj.AddComponent<AudioSource>();
-        audioSource.playOnAwake = false;
-        obj.SetActive(false);
-
-        audioSourcePool.Enqueue(audioSource);
+        return newAudioSource;
     }
+
 
     public AudioSource Play2DSoundEffect(SoundEffect soundEffect, float volume = 1.0f, float pitchMin = 1.0f, float pitchMax = 1.0f, bool isOneShot = true)
     {
@@ -95,7 +102,29 @@ public class AudioManager : Singleton<AudioManager>
 
         AudioClip clip = clips[Random.Range(0, clips.Count)];
 
-        AudioSource audioSource = GetAvailableAudioSource();
+        AudioSource audioSource;
+
+        // If isOneShot is true and there are active audio sources for this sound effect, use one of them
+        if (isOneShot && activeAudioSources.TryGetValue(soundEffect, out List<AudioSource> activeSources))
+        {
+            for (int i = 0; i < activeSources.Count; i++)
+            {
+                if (!activeSources[i].isPlaying)
+                {
+                    audioSource = activeSources[i];
+                    break;
+                }
+            }
+
+            // If no inactive audio source is found, create a new one
+            audioSource = CreateAudioSource();
+            activeSources.Add(audioSource);
+        }
+        else
+        {
+            // Get an AudioSource from the pool
+            audioSource = GetAvailableAudioSource();
+        }
 
         audioSource.volume = volume;
         audioSource.pitch = Random.Range(pitchMin, pitchMax);
@@ -105,7 +134,7 @@ public class AudioManager : Singleton<AudioManager>
         audioSource.minDistance = minDistance;
         audioSource.maxDistance = maxDistance;
 
-        audioSource.loop = !isOneShot;
+        audioSource.loop = false; // Set looping to false for one-shot clips
 
         if (spatialBlend > 0)
         {
@@ -116,7 +145,10 @@ public class AudioManager : Singleton<AudioManager>
 
         audioSource.Play();
 
-        StartCoroutine(ReturnAudioSourceToPool(audioSource));
+        if (isOneShot)
+        {
+            StartCoroutine(ReturnAudioSourceToPool(audioSource));
+        }
 
         return audioSource;
     }
@@ -126,6 +158,12 @@ public class AudioManager : Singleton<AudioManager>
         yield return new WaitForSeconds(audioSource.clip.length);
         audioSource.gameObject.SetActive(false);
         audioSourcePool.Enqueue(audioSource);
+
+        // If this audio source was part of the active audio sources, remove it from the list
+        foreach (var kvp in activeAudioSources)
+        {
+            kvp.Value.Remove(audioSource);
+        }
     }
 
     private AudioSource GetAvailableAudioSource()

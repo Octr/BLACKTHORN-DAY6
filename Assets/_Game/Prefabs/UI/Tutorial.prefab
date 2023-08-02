@@ -57,7 +57,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -103,90 +103,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!1 &5532910683791060051
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2378357313234631985}
-  - component: {fileID: 2251224543386775581}
-  m_Layer: 0
-  m_Name: tutorial
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &2378357313234631985
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5532910683791060051}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.13, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7493620206454869111}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2251224543386775581
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5532910683791060051}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fd996f982f2035e47bd2e5f27edbe94e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 6, y: 3}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &6014258569356390022
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,7 +268,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2378357313234631985}
   - {fileID: 4975483396126655074}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -370,11 +285,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioTracks:
-  - audioClip: {fileID: 8300000, guid: 4854db51638502f4198279d0cf5ea5cf, type: 3}
-  - audioClip: {fileID: 8300000, guid: a11c3adea7f071e4bb6dce5f45b6f6cb, type: 3}
-  - audioClip: {fileID: 8300000, guid: f89228232d02e6a439c7a34cf455678b, type: 3}
-  - audioClip: {fileID: 8300000, guid: d12bb3348cf9da544b1ea475de41c7c2, type: 3}
-  - audioClip: {fileID: 8300000, guid: 2e518b85836b8244fb65f821dec4e646, type: 3}
+  - audioClip: {fileID: 8300000, guid: 099f97eb849c29248848b013ff7cc916, type: 3}
+  - audioClip: {fileID: 8300000, guid: 02e0f2122cd6e8340948c20f7207dd3b, type: 3}
+  - audioClip: {fileID: 8300000, guid: edf5ea29e88c91a4da4a0a9059bedf9f, type: 3}
+  - audioClip: {fileID: 8300000, guid: 1c50e9cd388150740abfe0ac97bfcb5e, type: 3}
+  - audioClip: {fileID: 8300000, guid: 12fb289a341c3424c8084736231c261a, type: 3}
   subtitleText: {fileID: 6474698252791977206}
   delayBetweenTracks: 1
   subtitles:
@@ -475,5 +390,5 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_SortAtRoot: 0

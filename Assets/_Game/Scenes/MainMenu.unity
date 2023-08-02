@@ -2741,7 +2741,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BloomText: {fileID: 574014018}
-  dontDestroy: {fileID: 0}
 --- !u!222 &916016001
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10729,7 +10728,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e9a6f5c24fd794093a648139a7c6b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
   starsText: {fileID: 863801696}
 --- !u!224 &2108514729
 RectTransform:
