@@ -4,11 +4,12 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;
     public int maxSpawnLimit = 10;
+    public float spawnRate = 1f;
 
     private void Start()
     {
         // Spawn enemies continuously
-        InvokeRepeating("SpawnEnemy", 1f, 2f);
+        InvokeRepeating("SpawnEnemy", 1f, spawnRate);
         EnemyTracker.Instance.maxEnemyCounter = 0; // Reset Spawners
     }
 
