@@ -60,6 +60,10 @@ public class EnemyScript : MonoBehaviour
 
     private void OnDestroy()
     {
-        EnemyTracker.Instance.RemoveEnemy(gameObject);
+        // Check if EnemyTracker instance and gameObject are valid before removing the enemy
+        if (EnemyTracker.Instance != null && gameObject != null)
+        {
+            EnemyTracker.Instance.RemoveEnemy(gameObject);
+        }
     }
 }
