@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 7494385479890623393}
   - component: {fileID: 2409469834022660368}
   - component: {fileID: 5478773578644861877}
+  - component: {fileID: 4518642650586570469}
   m_Layer: 5
   m_Name: HomeButton
   m_TagString: Untagged
@@ -224,6 +225,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Scale: 1.2
   Speed: 3
+--- !u!210 &4518642650586570469
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27954514002192197}
+  m_Enabled: 1
+  m_SortingLayerID: -1255834747
+  m_SortingLayer: 4
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1 &434392995995096217
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,6 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a15ffeef04ab14f985e29507e5ad83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollSpeed: 1
 --- !u!1 &1163218940655581911
 GameObject:
   m_ObjectHideFlags: 0
@@ -11014,10 +11028,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isTutorial: 0
   currStars: 0
-  gameManager: {fileID: 0}
   winTimerMax: 2
-  retrySound: {fileID: 0}
-  homeSound: {fileID: 0}
 --- !u!1 &7220915024490292081
 GameObject:
   m_ObjectHideFlags: 0
@@ -11599,6 +11610,7 @@ GameObject:
   - component: {fileID: 6874134329795624449}
   - component: {fileID: 2734353190802348020}
   - component: {fileID: 4784276419281115453}
+  - component: {fileID: 7773654078417295236}
   m_Layer: 5
   m_Name: RetryButton
   m_TagString: Untagged
@@ -11734,6 +11746,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Scale: 1.2
   Speed: 3
+--- !u!210 &7773654078417295236
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8441617339914643903}
+  m_Enabled: 1
+  m_SortingLayerID: -1255834747
+  m_SortingLayer: 4
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1 &8659906911368352213
 GameObject:
   m_ObjectHideFlags: 0
