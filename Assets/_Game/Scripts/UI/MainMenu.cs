@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     public GameObject[] Credits;
     public GameObject LevelSel;
     public TextMeshProUGUI LevelIndicator;
+    public ButtonMenuSelect LevelPlayButton;
 
     public DontDestroy gameManager;
 
@@ -18,9 +19,16 @@ public class MainMenu : MonoBehaviour
     public StarsDisplayer starsDisplayer;
     public TextMeshProUGUI starCountText;
 
+    private void Awake() {
+        
+        if (PlayerPrefs.HasKey("StarCount")) {
+            gameManager.starCount = PlayerPrefs.GetInt("StarCount");
+        }
+    }
+
     private void Start()
     {
-        gameManager = FindObjectOfType<DontDestroy>();
+        gameManager = FindObjectOfType<DontDestroy>();        
         starCountText.text = gameManager.starCount.ToString() + "/" + MaxLevel*3;
     }
 
@@ -48,6 +56,11 @@ public class MainMenu : MonoBehaviour
         if (m > MaxLevel)
         {
             m = 1;
+        }        
+        if(gameManager.levelsUnlocked[m-1]) {
+            LevelPlayButton.String_ = "PLAY";
+        } else {
+            LevelPlayButton.String_ = "LOCKED";
         }
         starsDisplayer.LevelSelected(m-1);
     }
@@ -57,6 +70,11 @@ public class MainMenu : MonoBehaviour
         if (m<1)
         {
             m = MaxLevel;
+        }        
+        if(gameManager.levelsUnlocked[m-1]) {
+            LevelPlayButton.String_ = "PLAY";
+        } else {
+            LevelPlayButton.String_ = "LOCKED";
         }
         starsDisplayer.LevelSelected(m-1);
     }
@@ -73,12 +91,14 @@ public class MainMenu : MonoBehaviour
 
     public void PlayLevel()
     {
-        gameManager.SetLevel(m-1);
-        SceneManager.LoadScene("Level " + m);
+        if(DontDestroy.Instance.levelsUnlocked[m-1]) {
+            gameManager.SetLevel(m-1);
+            SceneManager.LoadScene("Level " + m);
 
-        if(m >= 6)
-        {
-            BulletShooter.Instance.isUnlocked = true;
+            if(m >= 6)
+            {
+                BulletShooter.Instance.isUnlocked = true;
+            }            
         }
     }
 
