@@ -108,7 +108,7 @@ public class DontDestroy : Singleton<DontDestroy>
 
     public void AddLevel()
     {
-        if(!levelsUnlocked[currLevel + 1]) {
+        if( (currLevel+1) <= levelsUnlocked.Length && !levelsUnlocked[currLevel + 1]) {
             levelsUnlocked[currLevel + 1] = true;
             PlayerPrefs.SetString("LevelsUnlocked", Serializer.SerializeBoolArray(levelsUnlocked));
             PlayerPrefs.Save();
