@@ -10969,14 +10969,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 551412148}
     m_Modifications:
-    - target: {fileID: 7256630744938985102, guid: 8e7268191d81d6a469fd045ea37a90e9, type: 3}
-      propertyPath: m_SortingLayer
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7256630744938985102, guid: 8e7268191d81d6a469fd045ea37a90e9, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1255834747
-      objectReference: {fileID: 0}
     - target: {fileID: 7970502384624787746, guid: 8e7268191d81d6a469fd045ea37a90e9, type: 3}
       propertyPath: m_Name
       value: Game_Logo
